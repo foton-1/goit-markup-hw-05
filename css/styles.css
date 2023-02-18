@@ -10,6 +10,8 @@
   --typical-ls: 0.02em;
   --custommers-color-norm: #8e8f99;
   --max-width-section: 1440px;
+  --h-timing-duration: 650ms;
+  --h-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list {
@@ -115,28 +117,34 @@ span.akcent {
 .header {
   border-bottom: 1px solid var(--text-color-light);
 }
-.header-link {
-  position: relative;
 
+.header-link {
   display: block;
   font-weight: 500;
   /*font-size: 16px;*/
   line-height: var(--typical-lh);
   color: var(--main-title-color);
-  outline: 1px solid red;
+  transition-property: color;
+  transition-duration: var(--h-timing-duration);
+  transition-timing-function: var(--h-timing-function);
+}
+.active {
+  position: relative;
+  color: var(--akcent-color);
 }
 
-.header-link::after {
+.active::after {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -24px;
   content: '';
   display: block;
 
-  max-width: 100%;
+  width: 100%;
   height: 4px;
   background: var(--theme-dark);
   border-radius: 2px;
+
   /*margin: 0 auto;
   margin-top: 24px;*/
 }
@@ -151,6 +159,10 @@ span.akcent {
   line-height: var(--typical-lh);
   letter-spacing: var(--typical-ls);
   color: var(--second-title-color);
+
+  transition-property: color;
+  transition-duration: var(--h-timing-duration);
+  transition-timing-function: var(--h-timing-function);
 }
 .header-mail:hover,
 .header-mail:focus {
@@ -182,6 +194,10 @@ span.akcent {
   margin-left: 40px;
 }
 --*/
+.header-list-item {
+  position: relative;
+}
+
 .header-address-list {
   display: flex;
   gap: 40px;
@@ -249,12 +265,16 @@ span.akcent {
   color: var(--color-theme-dark);
   background-color: var(--theme-dark);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  transition-property: background-color;
+  transition-duration: var(--h-timing-duration);
+  transition-timing-function: var(--h-timing-function);
 }
 
 .hero-btn:hover,
 .hero-btn:focus {
   background-color: var(--akcent-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  /*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);*/
 }
 
 /*================================/HERO=======*/
@@ -379,6 +399,10 @@ span.akcent {
 }
 .social-list .social-link {
   background-color: var(--theme-dark);
+
+  transition-property: background-color;
+  transition-duration: var(--h-timing-duration);
+  transition-timing-function: var(--h-timing-function);
 }
 /*можна виконати як background-image у посиланні 
 social-link задавши посиланню висоту і ширину,
@@ -415,6 +439,10 @@ social-link задавши посиланню висоту і ширину,
   height: 88px;
   border: 1px solid var(--custommers-color-norm);
   border-radius: 4px;
+
+  transition-property: border-color;
+  transition-duration: var(--h-timing-duration);
+  transition-timing-function: var(--h-timing-function);
 }
 .customers-logo:hover,
 .customers-logo:focus {
@@ -424,6 +452,10 @@ social-link задавши посиланню висоту і ширину,
   width: 104px;
   height: 56px;
   fill: var(--custommers-color-norm);
+
+  transition-property: fill;
+  transition-duration: var(--h-timing-duration);
+  transition-timing-function: var(--h-timing-function);
 }
 .customers-logo:hover .customers-img,
 .customers-logo:focus .customers-img {
@@ -474,6 +506,9 @@ social-link задавши посиланню висоту і ширину,
 }
 .footer-social-list .social-link {
   background-color: rgba(255, 255, 255, 0.1);
+  transition-property: background-color;
+  transition-duration: var(--h-timing-duration);
+  transition-timing-function: var(--h-timing-function);
 }
 .footer-social-list .social-link:hover {
   background-color: #31d0aa;
@@ -507,6 +542,10 @@ social-link задавши посиланню висоту і ширину,
   line-height: var(--typical-lh);
   border: 1px solid var(--text-color-light);
   border-radius: 4px;
+
+  transition-property: background-color, color, border, box-shadow;
+  transition-duration: var(--h-timing-duration);
+  transition-timing-function: var(--h-timing-function);
 }
 .filter-btn:hover,
 .filter-btn:focus {
@@ -531,6 +570,10 @@ social-link задавши посиланню висоту і ширину,
 }
 .example-link {
   display: block;
+
+  transition-property: box-shadow;
+  transition-duration: var(--h-timing-duration);
+  transition-timing-function: var(--h-timing-function);
 }
 
 .example-img {
