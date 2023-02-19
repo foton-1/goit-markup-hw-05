@@ -510,7 +510,8 @@ social-link задавши посиланню висоту і ширину,
   transition-duration: var(--h-timing-duration);
   transition-timing-function: var(--h-timing-function);
 }
-.footer-social-list .social-link:hover {
+.footer-social-list .social-link:hover,
+.footer-social-list .social-link:focus {
   background-color: #31d0aa;
 }
 .footer-social-item {
@@ -575,14 +576,13 @@ social-link задавши посиланню висоту і ширину,
   transition-duration: var(--h-timing-duration);
   transition-timing-function: var(--h-timing-function);
 }
-
-.example-img {
-  width: 100%;
-}
 .example-link:hover,
 .example-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.example-img {
+  width: 100%;
 }
 
 .exam-description {
@@ -597,4 +597,92 @@ social-link задавши посиланню висоту і ширину,
 }
 .example-coment {
 }
-/*====================================/PORTFOLIO===*/ ;
+/*----------------------------------------Overlay--*/
+.example-link-overlay {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: auto;
+
+  transform: translate(0, 100%);
+  transition: transform var(--h-timing-duration) var(--h-timing-function);
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: var(--typical-lh);
+  letter-spacing: var(--typical-ls);
+  color: var(--logo-color-light);
+  background: var(--theme-dark);
+
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.example-link:hover .overlay,
+.example-link:focus .overlay {
+  transform: translate(0, 0);
+}
+
+/*----------------------------------------Modal--*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+
+  transition: opacity 300ms linear, visibility 300ms linear;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 300ms linear;
+
+  width: 408px;
+  min-height: 576px;
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+/*--Стан схованої модалки:--*/
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btn-modal-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--text-color-light);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  margin-top: 24px;
+  margin-right: 24px;
+  margin-left: auto;
+  padding: 0;
+}
+.modal-close-icon {
+  width: 8px;
+  height: 8px;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+/*--замість is-hidden можна display:none,
+але він не анімується*/
